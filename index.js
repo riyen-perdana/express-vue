@@ -4,6 +4,11 @@ const express = require('express');
 // import cors
 const cors = require('cors');
 
+// import prisma client
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+module.exports = prisma;
+
 // import BodyParser
 const bodyParser = require('body-parser');
 
