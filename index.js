@@ -4,13 +4,11 @@ const express = require('express');
 // import cors
 const cors = require('cors');
 
-// import prisma client
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
-module.exports = prisma;
-
 // import BodyParser
 const bodyParser = require('body-parser');
+
+//import router
+const router = require('./routes')
 
 // init app
 const app = express();
@@ -31,6 +29,9 @@ const port = 3000;
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+//define routes
+app.use('/api', router);
 
 // run app
 app.listen(port, () => {
